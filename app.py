@@ -10,14 +10,17 @@ from typing import Dict, Any
 
 @tool
 def get_stock_info(symbol: str) -> Dict[str, Any]:
-    """
-    A tool that fetches current stock information for a given symbol.
-    
+    """A tool that fetches current stock information for a given stock symbol.
     Args:
-        symbol (str): The stock symbol for which to retrieve information (e.g., 'AAPL' for Apple, 'GOOG' for Google).
-    
+        symbol: A string representing the stock ticker symbol (e.g., 'AAPL' for Apple, 'GOOG' for Google).
     Returns:
-        Dict[str, Any]: A dictionary containing stock information, such as current price, today's high/low, and market cap.
+        Dict[str, Any]: A dictionary containing:
+            - Stock: The stock symbol
+            - Current Price: Current trading price
+            - Today's High: Highest price of the day
+            - Today's Low: Lowest price of the day
+            - Volume: Trading volume
+            - MarketCap: Market capitalization
     """
     try:
         # Create ticker object
