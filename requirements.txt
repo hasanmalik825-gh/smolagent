@@ -1,0 +1,6 @@
+markdownify
+smolagents
+requests
+duckduckgo_search
+pandas
+yfinance
