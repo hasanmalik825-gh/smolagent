@@ -8,14 +8,16 @@ from tools.final_answer import FinalAnswerTool
 from Gradio_UI import GradioUI
 from typing import Dict, Any
 
-
 @tool
-def get_stock_info(symbol: str)-> Dict[str, Any]:
+def get_stock_info(symbol: str) -> Dict[str, Any]:
     """
-    A tool that gets current stock information for a given symbol.
+    A tool that fetches current stock information for a given symbol.
     
     Args:
-        symbol (str): Stock symbol (e.g., 'AAPL' for Apple)
+        symbol (str): The stock symbol for which to retrieve information (e.g., 'AAPL' for Apple, 'GOOG' for Google).
+    
+    Returns:
+        Dict[str, Any]: A dictionary containing stock information, such as current price, today's high/low, and market cap.
     """
     try:
         # Create ticker object
@@ -37,6 +39,7 @@ def get_stock_info(symbol: str)-> Dict[str, Any]:
         }
     except Exception as e:
         print(f"Error fetching data for {symbol}: {str(e)}")
+        return {"Error": str(e)}  # Return the error in a friendly format
 
 @tool
 def get_current_time_in_timezone(timezone: str) -> str:
